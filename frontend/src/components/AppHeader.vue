@@ -3,10 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <RouterLink to="/" class="flex items-center space-x-2 group">
-          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-            <span class="text-white font-bold text-sm">A</span>
-          </div>
+        <RouterLink to="/" class="group">
           <span class="text-xl font-bold text-blue-600 group-hover:scale-105 transition-transform">
             ApexBlog
           </span>
@@ -113,7 +110,7 @@ const navItems = [
   { name: '首页', path: '/' },
   { name: '分类', path: '/categories' },
   { name: '标签', path: '/tags' },
-  { name: '作品集', path: '/portfolios' },
+  { name: '作品', path: '/portfolios' },
   { name: '友链', path: '/friend-links' },
   { name: '订阅', path: '/subscribe' },
   { name: '关于', path: '/about' },
