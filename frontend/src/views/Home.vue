@@ -2,11 +2,11 @@
   <div class="min-h-screen bg-white">
     <!-- 主要内容区域 -->
     <div class="max-w-7xl mx-auto px-4 py-8">
-      <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex flex-col lg:flex-row gap-8 lg:items-start">
         <!-- 主内容区 -->
         <div class="flex-1 lg:max-w-3xl">
           <!-- 文章列表 -->
-          <div>
+          <div class="lg:min-h-[750px] flex flex-col">
 
             <!-- 加载状态 -->
             <Transition name="loading">
@@ -29,37 +29,39 @@
               v-if="articles.length > 0"
               name="list"
               tag="div"
-              class="space-y-6"
+              class="flex-1 flex flex-col gap-4"
             >
               <article
                 v-for="article in articles"
                 :key="article.id"
-                class="glass-effect p-6 cursor-pointer card-hover"
+                class="glass-effect p-5 cursor-pointer card-hover flex-1 min-h-[160px] flex flex-col justify-between"
                 @click="goToArticle(article.id)"
               >
-                <div class="flex gap-4">
-                  <div v-if="article.coverImage" class="w-32 h-24 flex-shrink-0">
+                <div class="flex gap-4 h-full">
+                  <div v-if="article.coverImage" class="w-32 h-28 flex-shrink-0">
                     <img
                       :src="article.coverImage"
                       :alt="article.title"
                       class="w-full h-full object-cover rounded"
                     >
                   </div>
-                  <div class="flex-1">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
-                      {{ article.title }}
-                    </h3>
-                    <p class="text-gray-600 line-clamp-2 mb-3">
-                      {{ article.summary }}
-                    </p>
-                    <div class="flex items-center justify-between">
+                  <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors line-clamp-2">
+                        {{ article.title }}
+                      </h3>
+                      <p class="text-gray-600 line-clamp-3 mb-3 flex-1">
+                        {{ article.summary }}
+                      </p>
+                    </div>
+                    <div class="flex items-center justify-between mt-auto">
                       <div class="flex items-center space-x-4 text-sm text-gray-500">
                         <span>{{ formatDate(article.publishedAt) }}</span>
                         <span>{{ article.viewCount }} 阅读</span>
                       </div>
                       <div class="flex flex-wrap gap-2">
                         <span
-                          v-for="tag in article.tags?.slice(0, 3)"
+                          v-for="tag in article.tags?.slice(0, 2)"
                           :key="tag.id"
                           class="px-2 py-1 text-xs rounded"
                           :style="{ backgroundColor: tag.color + '20', color: tag.color }"
@@ -89,7 +91,7 @@
         </div>
 
         <!-- 侧边栏 -->
-        <div class="w-full lg:w-80 flex-shrink-0">
+        <div class="w-full lg:w-80 flex-shrink-0 lg:min-h-[850px] flex flex-col">
           <!-- 热门标签 -->
           <div class="glass-effect p-6 mb-6">
             <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
