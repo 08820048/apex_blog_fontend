@@ -5,9 +5,8 @@
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- 主内容区 -->
         <div class="flex-1 lg:max-w-3xl">
-          <!-- 最新文章 -->
+          <!-- 文章列表 -->
           <div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">最新文章</h2>
 
             <!-- 加载状态 -->
             <Transition name="loading">
@@ -117,7 +116,7 @@
           </div>
 
           <!-- 博客统计 -->
-          <div class="glass-effect p-6">
+          <div class="glass-effect p-6 mb-6">
             <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
