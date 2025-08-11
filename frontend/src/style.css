@@ -20,6 +20,13 @@ body {
   min-height: 100vh;
   color: #000000;
   font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 暗色模式 */
+.dark body {
+  background: #111827;
+  color: #f9fafb;
 }
 
 #app {
@@ -166,6 +173,29 @@ img {
   border: 1px solid #e1e5e9;
   border-radius: 12px;
   box-shadow: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .glass-effect {
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+
+/* 导航链接样式 */
+.nav-link {
+  @apply text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors;
+}
+
+.dark .nav-link {
+  @apply text-gray-300 hover:text-blue-400;
+}
+
+.nav-link-active {
+  @apply text-blue-600 bg-blue-50;
+}
+
+.dark .nav-link-active {
+  @apply text-blue-400 bg-blue-900/20;
 }
 
 .card-hover {

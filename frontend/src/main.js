@@ -2,8 +2,13 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './style.css'
+import { useTheme } from './composables/useTheme'
 
 const app = createApp(App)
+
+// 初始化主题
+const { initTheme } = useTheme()
+initTheme()
 
 // 全局错误处理
 app.config.errorHandler = (err, _vm, info) => {
