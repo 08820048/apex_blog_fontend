@@ -129,28 +129,7 @@
         </div>
       </div>
 
-      <!-- 统计信息 -->
-      <div class="glass-effect rounded-2xl p-8">
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">博客统计</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-blue-600 mb-2">{{ stats.articleCount || 0 }}</div>
-            <div class="text-gray-600">文章总数</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-green-600 mb-2">{{ stats.viewCount || 0 }}</div>
-            <div class="text-gray-600">总访问量</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-purple-600 mb-2">{{ stats.tagCount || 0 }}</div>
-            <div class="text-gray-600">标签数量</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-red-600 mb-2">{{ stats.categoryCount || 0 }}</div>
-            <div class="text-gray-600">分类数量</div>
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </template>
@@ -167,13 +146,7 @@ const BookIcon = { template: '<svg viewBox="0 0 24 24" fill="currentColor"><path
 const UpdateIcon = { template: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg>' }
 const CommunityIcon = { template: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A3.01 3.01 0 0 0 16.5 6.5c-.83 0-1.58.34-2.12.89L12 10.5 9.62 7.39C9.08 6.84 8.33 6.5 7.5 6.5c-1.31 0-2.42.83-2.96 2.13L2 16h2.5v6h4v-6H10l1.5-3.5L13 16h1.5v6h4zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5z"/></svg>' }
 
-// 响应式数据 - 使用静态数据展示
-const stats = ref({
-  articleCount: 5,
-  viewCount: 1250,
-  tagCount: 8,
-  categoryCount: 4
-})
+
 </script>
 
 <style scoped>
