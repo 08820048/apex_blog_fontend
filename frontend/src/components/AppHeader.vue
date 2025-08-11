@@ -43,9 +43,10 @@
 
           <!-- 主题切换按钮 -->
           <button
-            @click="toggleTheme"
+            @click="handleThemeToggle"
             class="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             :title="isDark ? '切换到亮色模式' : '切换到暗色模式'"
+            type="button"
           >
             <!-- 太阳图标 (亮色模式) -->
             <svg v-if="!isDark" class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
@@ -99,8 +100,9 @@
           <!-- 移动端主题切换 -->
           <div class="px-4">
             <button
-              @click="toggleTheme"
+              @click="handleThemeToggle"
               class="flex items-center w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              type="button"
             >
               <!-- 太阳图标 (亮色模式) -->
               <svg v-if="!isDark" class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24">
@@ -142,7 +144,21 @@ const searchKeyword = ref('')
 const mobileMenuOpen = ref(false)
 
 // 主题功能
-const { isDark, toggleTheme } = useTheme()
+const { isDark, toggleTheme: originalToggleTheme } = useTheme()
+
+// 安全的主题切换函数
+const handleThemeToggle = async (event) => {
+  try {
+    // 防止事件冒泡
+    event.preventDefault()
+    event.stopPropagation()
+
+    // 调用原始切换函数
+    await originalToggleTheme()
+  } catch (error) {
+    console.error('主题切换失败:', error)
+  }
+}
 
 const navItems = [
   { name: '首页', path: '/' },
