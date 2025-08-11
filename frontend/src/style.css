@@ -23,10 +23,27 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 暗色模式 */
+/* 暗色模式全局样式 */
+.dark {
+  color-scheme: dark;
+}
+
 .dark body {
-  background: #111827;
-  color: #f9fafb;
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+/* 确保根元素也有背景色 */
+html.dark {
+  background: #0f172a;
+}
+
+#app {
+  transition: background-color 0.3s ease;
+}
+
+.dark #app {
+  background: #0f172a;
 }
 
 #app {

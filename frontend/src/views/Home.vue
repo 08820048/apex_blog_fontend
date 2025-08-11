@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="min-h-screen bg-white dark:bg-slate-900">
     <!-- 主要内容区域 -->
     <div class="max-w-7xl mx-auto px-4 py-8">
       <div class="flex flex-col lg:flex-row gap-8 lg:items-start">
@@ -47,15 +47,15 @@
                   </div>
                   <div class="flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 class="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
                         {{ article.title }}
                       </h3>
-                      <p class="text-gray-600 line-clamp-3 mb-3 flex-1">
+                      <p class="text-gray-600 dark:text-gray-300 line-clamp-3 mb-3 flex-1">
                         {{ article.summary }}
                       </p>
                     </div>
                     <div class="flex items-center justify-between mt-auto">
-                      <div class="flex items-center space-x-4 text-sm text-gray-500">
+                      <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                         <span>{{ formatDate(article.publishedAt) }}</span>
                         <span>{{ article.viewCount }} 阅读</span>
                       </div>
@@ -77,13 +77,13 @@
 
             <!-- 空状态 -->
             <div v-else-if="!loading && articles.length === 0" class="glass-effect p-12 text-center">
-              <div class="text-gray-400 mb-4">
+              <div class="text-gray-400 dark:text-gray-500 mb-4">
                 <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                 </svg>
               </div>
-              <h3 class="text-lg font-semibold text-gray-900 mb-2">暂无文章</h3>
-              <p class="text-gray-600">还没有发布任何文章，请稍后再来查看。</p>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">暂无文章</h3>
+              <p class="text-gray-600 dark:text-gray-300">还没有发布任何文章，请稍后再来查看。</p>
             </div>
 
 
@@ -94,8 +94,8 @@
         <div class="w-full lg:w-80 flex-shrink-0 lg:min-h-[850px] flex flex-col">
           <!-- 热门标签 -->
           <div class="glass-effect p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <TagIcon class="w-5 h-5 mr-2 text-blue-600" />
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
+              <TagIcon class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" />
               热门标签
             </h3>
             <TransitionGroup
@@ -114,13 +114,13 @@
                 {{ tag.name }}
               </span>
             </TransitionGroup>
-            <div v-else class="text-gray-500">暂无标签</div>
+            <div v-else class="text-gray-500 dark:text-gray-400">暂无标签</div>
           </div>
 
           <!-- 博客统计 -->
           <div class="glass-effect p-6 mb-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center">
+              <svg class="w-5 h-5 mr-2 text-gray-600 dark:text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
               </svg>
               博客统计
@@ -148,10 +148,10 @@
           <!-- 分页 -->
           <Transition name="fade">
             <div v-if="totalPages > 1" class="glass-effect p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">页面导航</h3>
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">页面导航</h3>
 
             <!-- 分页信息 -->
-            <div class="text-sm text-gray-600 mb-4">
+            <div class="text-sm text-gray-600 dark:text-gray-400 mb-4">
               共 {{ totalElements }} 篇文章，第 {{ currentPage }} / {{ totalPages }} 页
             </div>
 
@@ -161,7 +161,7 @@
               <button
                 @click="changePage(currentPage - 1)"
                 :disabled="currentPage <= 1"
-                class="w-full px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 上一页
               </button>
@@ -169,7 +169,7 @@
               <!-- 页码按钮 -->
               <div class="grid grid-cols-4 gap-1">
                 <template v-for="page in getPageNumbers()" :key="page">
-                  <span v-if="page === '...'" class="px-2 py-1 text-xs text-center text-gray-500">
+                  <span v-if="page === '...'" class="px-2 py-1 text-xs text-center text-gray-500 dark:text-gray-400">
                     ...
                   </span>
                   <button
@@ -179,7 +179,7 @@
                       'px-2 py-1 text-xs font-medium rounded',
                       page === currentPage
                         ? 'bg-blue-600 text-white'
-                        : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                        : 'text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700'
                     ]"
                   >
                     {{ page }}
@@ -191,7 +191,7 @@
               <button
                 @click="changePage(currentPage + 1)"
                 :disabled="currentPage >= totalPages"
-                class="w-full px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 下一页
               </button>

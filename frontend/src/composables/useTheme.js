@@ -22,10 +22,15 @@ export function useTheme() {
 
   // 应用主题
   const applyTheme = () => {
+    const html = document.documentElement
+    const body = document.body
+
     if (isDark.value) {
-      document.documentElement.classList.add('dark')
+      html.classList.add('dark')
+      body.classList.add('dark')
     } else {
-      document.documentElement.classList.remove('dark')
+      html.classList.remove('dark')
+      body.classList.remove('dark')
     }
   }
 
