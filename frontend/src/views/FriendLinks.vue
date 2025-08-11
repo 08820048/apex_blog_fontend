@@ -3,8 +3,8 @@
     <div class="max-w-7xl mx-auto">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-4">友情链接</h1>
-        <p class="text-xl text-white/80">与优秀的朋友们一起成长</p>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">友情链接</h1>
+        <p class="text-xl text-gray-600 dark:text-white/80">与优秀的朋友们一起成长</p>
       </div>
 
       <!-- 友链申请说明 -->
@@ -27,7 +27,7 @@
 
       <!-- 友链列表 -->
       <div>
-        <h2 class="text-2xl font-bold text-white mb-6">友站推荐</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">友站推荐</h2>
         
         <!-- 加载状态 -->
         <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -108,8 +108,8 @@
 
       <!-- 友链统计 -->
       <div v-if="friendLinks.length > 0" class="mt-8 text-center">
-        <p class="text-white/80">
-          共有 <span class="font-bold text-white">{{ friendLinks.length }}</span> 个友站
+        <p class="text-gray-600 dark:text-white/80">
+          共有 <span class="font-bold text-gray-900 dark:text-white">{{ friendLinks.length }}</span> 个友站
         </p>
       </div>
     </div>

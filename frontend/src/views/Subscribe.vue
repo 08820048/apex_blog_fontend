@@ -3,8 +3,8 @@
     <div class="max-w-4xl mx-auto">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-4">邮箱订阅</h1>
-        <p class="text-xl text-white/80">订阅我的博客，第一时间获取最新文章</p>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">邮箱订阅</h1>
+        <p class="text-xl text-gray-600 dark:text-white/80">订阅我的博客，第一时间获取最新文章</p>
       </div>
 
       <!-- 订阅表单 -->
@@ -119,8 +119,8 @@
 
       <!-- 订阅统计 -->
       <div v-if="subscriberCount > 0" class="mt-8 text-center">
-        <p class="text-white/80">
-          已有 <span class="font-bold text-white">{{ subscriberCount }}</span> 位朋友订阅了我们的更新
+        <p class="text-gray-600 dark:text-white/80">
+          已有 <span class="font-bold text-gray-900 dark:text-white">{{ subscriberCount }}</span> 位朋友订阅了我们的更新
         </p>
       </div>
     </div>

@@ -3,13 +3,13 @@
     <div class="max-w-7xl mx-auto">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-4">我的作品集</h1>
-        <p class="text-xl text-white/80">展示我的项目和技术成果</p>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">我的作品集</h1>
+        <p class="text-xl text-gray-600 dark:text-white/80">展示我的项目和技术成果</p>
       </div>
 
       <!-- 精选作品 -->
       <div v-if="featuredPortfolios.length > 0" class="mb-12">
-        <h2 class="text-2xl font-bold text-white mb-6">精选作品</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">精选作品</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div
             v-for="portfolio in featuredPortfolios"
@@ -69,7 +69,7 @@
 
       <!-- 所有作品 -->
       <div>
-        <h2 class="text-2xl font-bold text-white mb-6">所有作品</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">所有作品</h2>
         
         <!-- 加载状态 -->
         <div v-if="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

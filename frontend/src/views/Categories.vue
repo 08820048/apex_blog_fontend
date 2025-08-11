@@ -3,8 +3,8 @@
     <div class="max-w-7xl mx-auto">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-4">文章分类</h1>
-        <p class="text-xl text-white/80">按分类浏览所有文章</p>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">文章分类</h1>
+        <p class="text-xl text-gray-600 dark:text-white/80">按分类浏览所有文章</p>
       </div>
 
       <!-- 分类网格 -->

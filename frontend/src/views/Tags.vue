@@ -3,8 +3,8 @@
     <div class="max-w-7xl mx-auto">
       <!-- 页面标题 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold text-white mb-4">文章标签</h1>
-        <p class="text-xl text-white/80">通过标签快速找到相关文章</p>
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">文章标签</h1>
+        <p class="text-xl text-gray-600 dark:text-white/80">通过标签快速找到相关文章</p>
       </div>
 
       <!-- 标签云 -->
@@ -50,7 +50,7 @@
       <!-- 标签列表 -->
       <Transition name="fade">
         <div v-if="!loading && tags.length > 0" class="mt-8">
-        <h2 class="text-2xl font-bold text-white mb-6">所有标签</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">所有标签</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div 
             v-for="tag in tags" 
