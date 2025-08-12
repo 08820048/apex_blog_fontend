@@ -1,15 +1,15 @@
 <template>
   <div class="sidebar">
-    <div class="logo" :class="{ collapsed: collapsed }">
+    <div class="logo" :class="{ collapsed: props.collapsed }">
       <el-icon><Document /></el-icon>
-      <span v-show="!collapsed" class="logo-text">ApexBlog</span>
+      <span v-show="!props.collapsed" class="logo-text">ApexBlog</span>
     </div>
     
     <el-menu
       :default-active="$route.path"
       class="sidebar-menu"
       router
-      :collapse="collapsed"
+      :collapse="props.collapsed"
     >
       <el-menu-item index="/dashboard">
         <el-icon><Odometer /></el-icon>
@@ -136,6 +136,36 @@ const emit = defineEmits(['toggle'])
 
 .sidebar-menu .el-sub-menu .el-menu-item.is-active {
   background-color: #ecf5ff;
+}
+
+/* 收起状态下的样式优化 */
+.sidebar-menu.el-menu--collapse {
+  width: 64px;
+}
+
+.sidebar-menu.el-menu--collapse .el-menu-item,
+.sidebar-menu.el-menu--collapse .el-sub-menu__title {
+  padding: 0 !important;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-menu.el-menu--collapse .el-menu-item .el-icon,
+.sidebar-menu.el-menu--collapse .el-sub-menu__title .el-icon {
+  margin-right: 0 !important;
+  font-size: 18px;
+}
+
+.sidebar-menu.el-menu--collapse .el-menu-item.is-active {
+  border-right: none;
+  background-color: #ecf5ff;
+}
+
+.sidebar-menu.el-menu--collapse .el-sub-menu__title:hover,
+.sidebar-menu.el-menu--collapse .el-menu-item:hover {
+  background-color: #f5f7fa;
 }
 
 /* 收起状态下的样式优化 */

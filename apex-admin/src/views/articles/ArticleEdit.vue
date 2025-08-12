@@ -55,11 +55,9 @@
               </el-form-item>
               
               <el-form-item label="文章内容" prop="content">
-                <el-input
+                <MarkdownEditor
                   v-model="form.content"
-                  type="textarea"
-                  :rows="20"
-                  placeholder="请输入文章内容（支持Markdown格式）"
+                  height="500px"
                 />
               </el-form-item>
             </el-card>
@@ -138,6 +136,7 @@ import { ElMessage } from 'element-plus'
 import { articleApi } from '@/api/article'
 import { categoryApi } from '@/api/category'
 import { tagApi } from '@/api/tag'
+import MarkdownEditor from '@/components/MarkdownEditor.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -242,19 +241,19 @@ const handleSave = async () => {
 // 发布文章
 const handlePublish = async () => {
   if (!formRef.value) return
-  
+
   try {
     await formRef.value.validate()
     publishing.value = true
-    
+
     form.status = 'PUBLISHED'
-    
+
     if (isEdit.value) {
       await articleApi.update(route.params.id, form)
     } else {
       await articleApi.create(form)
     }
-    
+
     ElMessage.success('文章发布成功')
     router.push('/articles')
   } catch (error) {
@@ -263,6 +262,8 @@ const handlePublish = async () => {
     publishing.value = false
   }
 }
+
+
 
 onMounted(() => {
   loadCategories()

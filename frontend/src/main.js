@@ -6,22 +6,22 @@ import { useTheme } from './composables/useTheme'
 
 const app = createApp(App)
 
-// 初始化主题
+// ?????????
 try {
   const { initTheme } = useTheme()
   initTheme()
 } catch (error) {
-  console.error('主题初始化失败:', error)
+  console.error('???????????:', error)
 }
 
-// 全局错误处理
+// ????????
 app.config.errorHandler = (err, _vm, info) => {
-  console.error('Vue应用错误:', err, info)
+  console.error('Vue??????:', err, info)
 }
 
-// 全局未捕获的Promise错误处理
+// ???��?????Promise??????
 window.addEventListener('unhandledrejection', event => {
-  console.error('未捕获的Promise错误:', event.reason)
+  console.error('��?????Promise????:', event.reason)
   event.preventDefault()
 })
 
